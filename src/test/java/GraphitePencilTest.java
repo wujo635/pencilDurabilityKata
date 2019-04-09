@@ -8,7 +8,7 @@ public class GraphitePencilTest {
 
     @Test
     public void sanityCheck() {
-        assertEquals(0, pencil.sanityCheck());
+        assertEquals(1, pencil.sanityCheck());
     }
 
 }
