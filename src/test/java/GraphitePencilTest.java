@@ -7,8 +7,9 @@ public class GraphitePencilTest {
     private GraphitePencil pencil = new GraphitePencil();
 
     @Test
-    public void sanityCheck() {
-        assertEquals(1, pencil.sanityCheck());
+    public void shouldWriteToPaper() {
+        pencil.write("Hello");
+        assertEquals("Hello", pencil.paper.toString());
     }
 
 }

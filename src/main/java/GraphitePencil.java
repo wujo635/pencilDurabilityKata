@@ -1,7 +1,12 @@
 public class GraphitePencil {
 
-    public int sanityCheck() {
-        return 1;
+    protected StringBuilder paper;
+
+    GraphitePencil() {
+        this.paper = new StringBuilder();
     }
 
+    public void write(String hello) {
+
+    }
 }
