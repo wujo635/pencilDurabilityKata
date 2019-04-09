@@ -6,7 +6,7 @@ public class GraphitePencil {
         this.paper = new StringBuilder();
     }
 
-    public void write(String hello) {
-
+    public void write(String writtenText) {
+        this.paper.append(writtenText);
     }
 }
