@@ -14,6 +14,6 @@ public class GraphitePencil {
     }
 
     public int getPencilDurability() {
-        return 0;
+        return this.pencilDurability;
     }
 }
