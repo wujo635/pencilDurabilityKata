@@ -3,10 +3,9 @@ public class GraphitePencil {
     protected StringBuilder paper;
 
     GraphitePencil() {
-        this.paper = new StringBuilder();
     }
 
-    public void write(String writtenText) {
-        this.paper.append(writtenText);
+    public void write(StringBuilder paper, String writtenText) {
+        paper.append(writtenText);
     }
 }
