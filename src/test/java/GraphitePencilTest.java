@@ -12,4 +12,10 @@ public class GraphitePencilTest {
         pencil.write(paper, "Hello");
         assertEquals("Hello", paper.toString());
     }
+
+    @Test
+    public void shouldWritePhraseToPaper() {
+        pencil.write(paper, "Multiple words");
+        assertEquals("Multiple words", paper.toString());
+    }
 }
