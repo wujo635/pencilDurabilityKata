@@ -1,11 +1,19 @@
 public class GraphitePencil {
 
-    protected StringBuilder paper;
+    private int pencilDurability;
 
     GraphitePencil() {
     }
 
+    GraphitePencil(int pencilDurability) {
+        this.pencilDurability = pencilDurability;
+    }
+
     public void write(StringBuilder paper, String writtenText) {
         paper.append(writtenText);
+    }
+
+    public int getPencilDurability() {
+        return 0;
     }
 }

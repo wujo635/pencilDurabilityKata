@@ -25,4 +25,10 @@ public class GraphitePencilTest {
         pencil.write(paper, " down by the sea shore");
         assertEquals("She sells sea shells down by the sea shore", paper.toString());
     }
+
+    @Test
+    public void shouldAllowPencilDurabilitySettingOnCreation() {
+        pencil = new GraphitePencil(100);
+        assertEquals(100, pencil.getPencilDurability());
+    }
 }
