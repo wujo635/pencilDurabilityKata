@@ -18,4 +18,11 @@ public class GraphitePencilTest {
         pencil.write(paper, "Multiple words");
         assertEquals("Multiple words", paper.toString());
     }
+
+    @Test
+    public void shouldAppendMultipleWritesToPaper() {
+        pencil.write(paper, "She sells sea shells");
+        pencil.write(paper, " down by the sea shore");
+        assertEquals("She sells sea shells down by the sea shore", paper.toString());
+    }
 }
