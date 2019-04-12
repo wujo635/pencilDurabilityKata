@@ -11,7 +11,7 @@ public class GraphitePencil {
 
     public void write(StringBuilder paper, String writtenText) {
         paper.append(writtenText);
-        updatePointDurability(writtenText);
+        updatePointDurability(writtenText.replaceAll("\\s+", ""));
     }
 
     private void updatePointDurability(String writtenText) {
