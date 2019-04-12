@@ -11,7 +11,13 @@ public class GraphitePencil {
 
     public void write(StringBuilder paper, String writtenText) {
         paper.append(writtenText);
-        this.pointDurability -= writtenText.length();
+        for (char c : writtenText.toCharArray()) {
+            if (Character.isUpperCase(c)) {
+                this.pointDurability -= 2;
+            } else {
+                this.pointDurability--;
+            }
+        }
     }
 
     public int getPointDurability() {
