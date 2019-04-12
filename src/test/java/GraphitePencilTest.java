@@ -4,7 +4,7 @@ import static org.junit.Assert.assertEquals;
 
 public class GraphitePencilTest {
 
-    private GraphitePencil pencil = new GraphitePencil();
+    private GraphitePencil pencil = new GraphitePencil(100);
     private StringBuilder paper = new StringBuilder();
 
     @Test
@@ -28,13 +28,11 @@ public class GraphitePencilTest {
 
     @Test
     public void shouldAllowPencilDurabilitySettingOnCreation() {
-        pencil = new GraphitePencil(100);
         assertEquals(100, pencil.getPointDurability());
     }
 
     @Test
     public void shouldDecreasePencilDurabilityByOneWhenLowercaseLetterIsWritten() {
-        pencil = new GraphitePencil(100);
         pencil.write(paper, "t");
         assertEquals(99, pencil.getPointDurability());
     }
