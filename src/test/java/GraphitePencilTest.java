@@ -44,4 +44,10 @@ public class GraphitePencilTest {
         pencil.write(paper, "T");
         assertEquals(98, pencil.getPointDurability());
     }
+
+    @Test
+    public void shouldWriteWhitespaceWithoutChangingPointDurability() {
+        pencil.write(paper, " ");
+        assertEquals(100, pencil.getPointDurability());
+    }
 }
