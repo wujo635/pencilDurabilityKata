@@ -9,13 +9,14 @@ public class GraphitePencil {
         this.pointDurability = pointDurability;
     }
 
-    public void write(StringBuilder paper, String writtenText) {
-        paper.append(writtenText);
-        updatePointDurability(writtenText.replaceAll("\\s+", ""));
+    public void write(StringBuilder paper, String textToWrite) {
+        paper.append(textToWrite);
+        updatePointDurability(textToWrite);
     }
 
-    private void updatePointDurability(String writtenText) {
-        for (char c : writtenText.toCharArray()) {
+    private void updatePointDurability(String textToWrite) {
+        String charactersToWrite = textToWrite.replaceAll("\\s+", "");
+        for (char c : charactersToWrite.toCharArray()) {
             if (Character.isUpperCase(c)) {
                 this.pointDurability -= 2;
             } else {
