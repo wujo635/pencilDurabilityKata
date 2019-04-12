@@ -39,4 +39,9 @@ public class GraphitePencilTest {
         assertEquals(99, pencil.getPointDurability());
     }
 
+    @Test
+    public void shouldDecreasePointDurabilityByTwoWhenUppercaseLetterIsWritten() {
+        pencil.write(paper, "T");
+        assertEquals(98, pencil.getPointDurability());
+    }
 }
