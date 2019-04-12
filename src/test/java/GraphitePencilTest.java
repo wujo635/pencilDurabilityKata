@@ -29,13 +29,13 @@ public class GraphitePencilTest {
     @Test
     public void shouldAllowPencilDurabilitySettingOnCreation() {
         pencil = new GraphitePencil(100);
-        assertEquals(100, pencil.getPencilDurability());
+        assertEquals(100, pencil.getPointDurability());
     }
 
     @Test
     public void shouldDecreasePencilDurabilityByOneWhenLowercaseLetterIsWritten() {
         pencil = new GraphitePencil(100);
         pencil.write(paper, "T");
-        assertEquals(99, pencil.getPencilDurability());
+        assertEquals(99, pencil.getPointDurability());
     }
 }

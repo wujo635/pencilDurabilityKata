@@ -1,19 +1,19 @@
 public class GraphitePencil {
 
-    private int pencilDurability;
+    private int pointDurability;
 
     GraphitePencil() {
     }
 
-    GraphitePencil(int pencilDurability) {
-        this.pencilDurability = pencilDurability;
+    GraphitePencil(int pointDurability) {
+        this.pointDurability = pointDurability;
     }
 
     public void write(StringBuilder paper, String writtenText) {
         paper.append(writtenText);
     }
 
-    public int getPencilDurability() {
-        return this.pencilDurability;
+    public int getPointDurability() {
+        return this.pointDurability;
     }
 }
