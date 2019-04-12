@@ -35,7 +35,7 @@ public class GraphitePencilTest {
     @Test
     public void shouldDecreasePencilDurabilityByOneWhenLowercaseLetterIsWritten() {
         pencil = new GraphitePencil(100);
-        pencil.write(paper, "T");
+        pencil.write(paper, "t");
         assertEquals(99, pencil.getPointDurability());
     }
 }

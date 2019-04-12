@@ -11,6 +11,7 @@ public class GraphitePencil {
 
     public void write(StringBuilder paper, String writtenText) {
         paper.append(writtenText);
+        this.pointDurability -= writtenText.length();
     }
 
     public int getPointDurability() {
