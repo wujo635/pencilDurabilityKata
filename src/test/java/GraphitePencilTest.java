@@ -76,7 +76,7 @@ public class GraphitePencilTest {
 
     @Test
     public void shouldDisallowWritingAfterPointDurabilityDecreasesToZero() {
-        pencil = new GraphitePencil(3);
+        pencil = new GraphitePencil(4);
         pencil.write(paper, "Text");
         assertEquals("Tex", paper.toString());
     }
