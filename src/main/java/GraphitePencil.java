@@ -3,6 +3,7 @@ public class GraphitePencil {
     private int pointDurability;
 
     GraphitePencil() {
+        this.pointDurability = 0;
     }
 
     GraphitePencil(int pointDurability) {
