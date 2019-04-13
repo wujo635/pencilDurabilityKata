@@ -11,20 +11,26 @@ public class GraphitePencil {
     }
 
     public void write(StringBuilder paper, String textToWrite) {
-        if (this.pointDurability > 0) {
-            paper.append(textToWrite);
-            updatePointDurability(textToWrite);
+        for (char c: textToWrite.toCharArray()) {
+            if (canWriteCharacter(c)) {
+                paper.append(c);
+            }
         }
     }
 
-    private void updatePointDurability(String textToWrite) {
-        String charactersToWrite = textToWrite.replaceAll("\\s+", "");
-        for (char c : charactersToWrite.toCharArray()) {
-            if (Character.isUpperCase(c)) {
-                this.pointDurability -= 2;
-            } else {
-                this.pointDurability--;
-            }
+    private boolean canWriteCharacter(char c) {
+        updatePointDurability(c);
+        if (this.pointDurability >= 0) {
+            return true;
+        }
+        return false;
+    }
+
+    private void updatePointDurability(char c) {
+        if (Character.isUpperCase(c)) {
+            this.pointDurability -= 2;
+        } else if (!Character.isWhitespace(c)) {
+            this.pointDurability--;
         }
     }
 
