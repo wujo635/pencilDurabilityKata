@@ -7,7 +7,11 @@ public class GraphitePencilTest {
     private GraphitePencil pencil = new GraphitePencil(100);
     private StringBuilder paper = new StringBuilder();
 
-    // TODO test default constructor after point degradation tests
+    @Test
+    public void shouldHavePointDurabilityOfZeroByDefault() {
+        pencil = new GraphitePencil();
+        assertEquals(0, pencil.getPointDurability());
+    }
 
     @Test
     public void shouldWriteOneWordToPaper() {
