@@ -56,4 +56,10 @@ public class GraphitePencilTest {
         pencil.write(paper, "@");
         assertEquals(99, pencil.getPointDurability());
     }
+
+    @Test
+    public void shouldDecreasePointDurabilityPerCharacterWritten() {
+        pencil.write(paper, "Text to write!");
+        assertEquals(87, pencil.getPointDurability());
+    }
 }
