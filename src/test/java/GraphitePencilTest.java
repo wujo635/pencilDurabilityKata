@@ -66,4 +66,11 @@ public class GraphitePencilTest {
         pencil.write(paper, "Text to write!");
         assertEquals(87, pencil.getPointDurability());
     }
+
+    @Test
+    public void shouldDisallowWritingWhenPointDurabilityIsZero() {
+        pencil = new GraphitePencil();
+        pencil.write(paper, "Text");
+        assertEquals("", paper.toString());
+    }
 }
