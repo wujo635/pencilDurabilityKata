@@ -11,8 +11,10 @@ public class GraphitePencil {
     }
 
     public void write(StringBuilder paper, String textToWrite) {
-        paper.append(textToWrite);
-        updatePointDurability(textToWrite);
+        if (this.pointDurability > 0) {
+            paper.append(textToWrite);
+            updatePointDurability(textToWrite);
+        }
     }
 
     private void updatePointDurability(String textToWrite) {
