@@ -50,4 +50,10 @@ public class GraphitePencilTest {
         pencil.write(paper, " ");
         assertEquals(100, pencil.getPointDurability());
     }
+
+    @Test
+    public void shouldDecreasePointDurabilityByOneWhenNonUppercaseOrSpaceIsWritten() {
+        pencil.write(paper, "@");
+        assertEquals(99, pencil.getPointDurability());
+    }
 }
