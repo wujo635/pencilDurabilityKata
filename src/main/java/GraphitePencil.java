@@ -1,19 +1,20 @@
 public class GraphitePencil {
 
-    private int maxPointDurability;
+    private final int maxPointDurability;
     private int pointDurability;
 
     GraphitePencil() {
-        this.pointDurability = 0;
+        this.maxPointDurability = 0;
+        resetPointDurability();
     }
 
     GraphitePencil(int pointDurability) {
         this.maxPointDurability = pointDurability;
-        this.pointDurability = pointDurability;
+        resetPointDurability();
     }
 
     public void write(StringBuilder paper, String textToWrite) {
-        for (char c: textToWrite.toCharArray()) {
+        for (char c : textToWrite.toCharArray()) {
             if (canWriteCharacter(c)) {
                 paper.append(c);
             }
