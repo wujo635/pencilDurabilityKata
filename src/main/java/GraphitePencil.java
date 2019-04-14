@@ -37,4 +37,7 @@ public class GraphitePencil {
     public int getPointDurability() {
         return this.pointDurability;
     }
+
+    public void resetPointDurability() {
+    }
 }

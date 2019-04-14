@@ -83,8 +83,14 @@ public class GraphitePencilTest {
 
     @Test
     public void shouldAllowNewlineWithoutChangingPointDurability() {
-        pencil.write(paper,"\n");
+        pencil.write(paper, "\n");
         assertEquals(100, pencil.getPointDurability());
+    }
 
+    @Test
+    public void shouldResetPointDurabilityWhenPencilIsSharpened() {
+        pencil.write(paper, "Text");
+        pencil.resetPointDurability();
+        assertEquals(100, pencil.getPointDurability());
     }
 }
