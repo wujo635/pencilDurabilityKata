@@ -88,9 +88,10 @@ public class GraphitePencilTest {
     }
 
     @Test
-    public void shouldResetPointDurabilityWhenPencilIsSharpened() {
+    public void shouldResetPointDurabilityWhenSharpened() {
         pencil.write(paper, "Text");
-        pencil.resetPointDurability();
+        pencil.sharpen();
         assertEquals(100, pencil.getPointDurability());
     }
+
 }
