@@ -46,6 +46,6 @@ public class GraphitePencil {
     }
 
     public int getLength() {
-        return 0;
+        return 10;
     }
 }
