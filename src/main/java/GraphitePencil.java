@@ -2,6 +2,7 @@ public class GraphitePencil {
 
     private final int maxPointDurability;
     private int pointDurability;
+    private int length = 10;
 
     GraphitePencil() {
         this.maxPointDurability = 100;
@@ -39,6 +40,7 @@ public class GraphitePencil {
 
     public void sharpen() {
         this.pointDurability = this.maxPointDurability;
+        this.length--;
     }
 
     public int getPointDurability() {
@@ -46,6 +48,6 @@ public class GraphitePencil {
     }
 
     public int getLength() {
-        return 10;
+        return this.length;
     }
 }
