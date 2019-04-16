@@ -100,4 +100,10 @@ public class GraphitePencilTest {
         assertEquals(100, pencil.getPointDurability());
     }
 
+    @Test
+    public void shouldDecreaseLengthByOneWhenSharpened() {
+        pencil.sharpen();
+        assertEquals(9, pencil.getLength());
+    }
+
 }
