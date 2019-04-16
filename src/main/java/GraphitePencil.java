@@ -41,8 +41,11 @@ public class GraphitePencil {
     }
 
     public void sharpen() {
-        this.pointDurability = this.maxPointDurability;
-        this.length--;
+        if (this.length > 0) {
+            this.pointDurability = this.maxPointDurability;
+            this.length--;
+        }
+
     }
 
     public int getPointDurability() {
