@@ -106,4 +106,11 @@ public class GraphitePencilTest {
         assertEquals(9, pencil.getLength());
     }
 
+    @Test
+    public void shouldDisallowNegativeLengthValue() {
+        pencil = new GraphitePencil(100, 0);
+        pencil.sharpen();
+        assertEquals(0, pencil.getLength());
+    }
+
 }
