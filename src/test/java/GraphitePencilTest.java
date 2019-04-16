@@ -4,7 +4,7 @@ import static org.junit.Assert.assertEquals;
 
 public class GraphitePencilTest {
 
-    private GraphitePencil pencil = new GraphitePencil(100);
+    private GraphitePencil pencil = new GraphitePencil(100, 10);
     private StringBuilder paper = new StringBuilder();
 
     @Test
@@ -82,7 +82,7 @@ public class GraphitePencilTest {
 
     @Test
     public void shouldDisallowWritingAfterPointDurabilityDecreasesToZero() {
-        pencil = new GraphitePencil(4);
+        pencil = new GraphitePencil(4, 10);
         pencil.write(paper, "Text");
         assertEquals("Tex", paper.toString());
     }
