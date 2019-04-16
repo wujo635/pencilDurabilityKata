@@ -14,6 +14,12 @@ public class GraphitePencilTest {
     }
 
     @Test
+    public void shouldHaveInitialLengthValueOf10() {
+        pencil = new GraphitePencil();
+        assertEquals(10, pencil.getLength());
+    }
+
+    @Test
     public void shouldWriteOneWordToPaper() {
         pencil.write(paper, "Hello");
         assertEquals("Hello", paper.toString());
