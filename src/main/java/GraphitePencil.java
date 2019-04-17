@@ -12,7 +12,7 @@ public class GraphitePencil {
 
     GraphitePencil(int pointDurability, int length) {
         this.maxPointDurability = pointDurability;
-        this.pointDurability = pointDurability;
+        this.pointDurability = Math.max(0, pointDurability);
         this.length = Math.max(0, length);
     }
 
