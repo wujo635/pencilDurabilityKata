@@ -20,6 +20,12 @@ public class GraphitePencilTest {
     }
 
     @Test
+    public void shouldDisallowNegativeInitialLengthValue() {
+        pencil = new GraphitePencil(100, -1);
+        assertEquals(0, pencil.getLength());
+    }
+
+    @Test
     public void shouldWriteOneWordToPaper() {
         pencil.write(paper, "Hello");
         assertEquals("Hello", paper.toString());
