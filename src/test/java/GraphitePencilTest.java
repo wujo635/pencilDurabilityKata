@@ -20,6 +20,12 @@ public class GraphitePencilTest {
     }
 
     @Test
+    public void shouldDisallowNegativeInitialPointDurabilityValue() {
+        pencil = new GraphitePencil(-1, 10);
+        assertEquals(0, pencil.getPointDurability());
+    }
+
+    @Test
     public void shouldDisallowNegativeInitialLengthValue() {
         pencil = new GraphitePencil(100, -1);
         assertEquals(0, pencil.getLength());
