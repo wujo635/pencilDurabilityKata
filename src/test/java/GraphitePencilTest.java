@@ -125,4 +125,12 @@ public class GraphitePencilTest {
         assertEquals(0, pencil.getLength());
     }
 
+    @Test
+    public void shouldDisallowSharpenToResetPointDurabilityWhenLengthIsZero() {
+        pencil = new GraphitePencil(100, 0);
+        pencil.write(paper, "Text");
+        pencil.sharpen();
+        assertEquals(95, pencil.getPointDurability());
+    }
+
 }
