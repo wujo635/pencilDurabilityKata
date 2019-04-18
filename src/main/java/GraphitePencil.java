@@ -49,7 +49,7 @@ public class GraphitePencil {
     }
 
     public void erase(StringBuilder paper, String text) {
-
+        paper.setLength(0);
     }
 
     public int getPointDurability() {
