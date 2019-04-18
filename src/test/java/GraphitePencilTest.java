@@ -146,4 +146,11 @@ public class GraphitePencilTest {
         pencil.erase(paper, "chuck");
         assertEquals("How much wood would a woodchuck chuck if a woodchuck could       wood?", paper.toString());
     }
+
+    @Test
+    public void shouldDisallowEraseWhenPaperDoesNotContainSubstring() {
+        pencil.write(paper, "Text");
+        pencil.erase(paper, "chuck");
+        assertEquals("Text", paper.toString());
+    }
 }
