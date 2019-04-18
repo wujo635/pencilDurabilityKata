@@ -48,6 +48,10 @@ public class GraphitePencil {
 
     }
 
+    public void erase(StringBuilder paper, String text) {
+
+    }
+
     public int getPointDurability() {
         return this.pointDurability;
     }

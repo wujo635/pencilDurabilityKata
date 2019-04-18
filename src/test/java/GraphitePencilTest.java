@@ -133,4 +133,11 @@ public class GraphitePencilTest {
         assertEquals(95, pencil.getPointDurability());
     }
 
+    @Test
+    public void shouldEraseSubstringIfSubstringAppearsOnTargetPaper() {
+        pencil.write(paper, "Text");
+        pencil.erase(paper, "Text");
+        assertEquals("", paper.toString());
+    }
+
 }
