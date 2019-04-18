@@ -48,8 +48,11 @@ public class GraphitePencil {
 
     }
 
-    public void erase(StringBuilder paper, String text) {
-        paper.setLength(0);
+    public void erase(StringBuilder paper, String textToErase) {
+        int substringStartIndex = paper.lastIndexOf(textToErase);
+        if (substringStartIndex >= 0) {
+            paper.replace(substringStartIndex, substringStartIndex + textToErase.length(), new String(new char[textToErase.length()]).replace("\0", " "));
+        }
     }
 
     public int getPointDurability() {
