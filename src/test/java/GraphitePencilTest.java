@@ -134,10 +134,16 @@ public class GraphitePencilTest {
     }
 
     @Test
-    public void shouldEraseSubstringIfSubstringAppearsOnTargetPaper() {
+    public void shouldEraseSubstringWhenPaperContainsSubstring() {
         pencil.write(paper, "Text");
         pencil.erase(paper, "Text");
         assertEquals("", paper.toString());
     }
 
+    @Test
+    public void shouldEraseLastOccurrenceOfSubstringWhenPaperContainsSubstring() {
+        pencil.write(paper, "How much wood would a woodchuck chuck if a woodchuck could chuck wood?");
+        pencil.erase(paper, "chuck");
+        assertEquals("How much wood would a woodchuck chuck if a woodchuck could       wood?", paper.toString());
+    }
 }
