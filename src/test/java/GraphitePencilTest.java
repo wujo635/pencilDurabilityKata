@@ -14,15 +14,15 @@ public class GraphitePencilTest {
     }
 
     @Test
-    public void shouldHaveInitialLengthValueOf10() {
+    public void shouldHaveLengthValueOFZeroByDefault() {
         pencil = new GraphitePencil();
-        assertEquals(10, pencil.getLength());
+        assertEquals(0, pencil.getLength());
     }
 
     @Test
-    public void shouldHaveInitialEraserDurabilityValueOf100() {
+    public void shouldHaveEraserDurabilityOfZeroByDefault() {
         pencil = new GraphitePencil();
-        assertEquals(100, pencil.getEraserDurability());
+        assertEquals(0, pencil.getEraserDurability());
     }
 
     @Test
