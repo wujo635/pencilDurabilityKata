@@ -13,7 +13,7 @@ public class GraphitePencil {
         this.pointDurability = Math.max(0, pointDurability);
         this.maxPointDurability = this.pointDurability;
         this.length = Math.max(0, length);
-        this.eraserDurability = eraserDurability;
+        this.eraserDurability = Math.max(0, eraserDurability);
     }
 
     public void write(StringBuilder paper, String textToWrite) {
