@@ -175,6 +175,13 @@ public class GraphitePencilTest {
     }
 
     @Test
+    public void shouldEraseStringsContainingWhitespace() {
+        pencil.write(paper, "How much wood would a woodchuck chuck if a woodchuck could chuck wood?");
+        pencil.erase(paper, "could chuck");
+        assertEquals("How much wood would a woodchuck chuck if a woodchuck             wood?", paper.toString());
+    }
+
+    @Test
     public void shouldDecreaseEraserDurabilityByOnePerCharacterErased() {
         pencil.write(paper, "Text");
         pencil.erase(paper, "x");
