@@ -20,6 +20,12 @@ public class GraphitePencilTest {
     }
 
     @Test
+    public void shouldHaveInitialEraserDurabilityValueOf100() {
+        pencil = new GraphitePencil();
+        assertEquals(100, pencil.getEraserDurability());
+    }
+
+    @Test
     public void shouldDisallowNegativeInitialPointDurabilityValue() {
         pencil = new GraphitePencil(-1, 10);
         assertEquals(0, pencil.getPointDurability());

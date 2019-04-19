@@ -64,4 +64,8 @@ public class GraphitePencil {
     public int getLength() {
         return this.length;
     }
+
+    public int getEraserDurability() {
+        return 0;
+    }
 }
