@@ -38,6 +38,12 @@ public class GraphitePencilTest {
     }
 
     @Test
+    public void shouldDisallowNegativeInitialEraserDurabilityValue() {
+        pencil = new GraphitePencil(100, 10, -1);
+        assertEquals(0, pencil.getEraserDurability());
+    }
+
+    @Test
     public void shouldWriteOneWordToPaper() {
         pencil.write(paper, "Hello");
         assertEquals("Hello", paper.toString());
