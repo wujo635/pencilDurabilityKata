@@ -153,4 +153,12 @@ public class GraphitePencilTest {
         pencil.erase(paper, "chuck");
         assertEquals("Text", paper.toString());
     }
+
+    @Test
+    public void shouldAllowMultipleErasesWhenPaperContainsSubstringMultipleTimes() {
+        pencil.write(paper, "How much wood would a woodchuck chuck if a woodchuck could chuck wood?");
+        pencil.erase(paper, "chuck");
+        pencil.erase(paper, "chuck");
+        assertEquals("How much wood would a woodchuck chuck if a wood      could       wood?", paper.toString());
+    }
 }
