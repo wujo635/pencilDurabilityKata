@@ -187,4 +187,12 @@ public class GraphitePencilTest {
         pencil.erase(paper, "x");
         assertEquals(99, pencil.getEraserDurability());
     }
+
+    @Test
+    public void shouldDisallowEraseAfterEraserDurabilityReachesZero() {
+        pencil = new GraphitePencil(100, 10, 3);
+        pencil.write(paper, "Buffalo Bill");
+        pencil.erase(paper, "Bill");
+        assertEquals("Buffalo B   ", paper.toString());
+    }
 }
