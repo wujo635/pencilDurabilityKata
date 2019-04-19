@@ -2,18 +2,21 @@ public class GraphitePencil {
 
     private final int maxPointDurability;
     private int pointDurability;
+    private int eraserDurability;
     private int length;
 
     GraphitePencil() {
         this.maxPointDurability = 100;
         this.pointDurability = 0;
         this.length = 10;
+        this.eraserDurability = 100;
     }
 
-    GraphitePencil(int pointDurability, int length) {
+    GraphitePencil(int pointDurability, int length, int eraserDurability) {
         this.pointDurability = Math.max(0, pointDurability);
         this.maxPointDurability = this.pointDurability;
         this.length = Math.max(0, length);
+        this.eraserDurability = eraserDurability;
     }
 
     public void write(StringBuilder paper, String textToWrite) {
@@ -66,6 +69,6 @@ public class GraphitePencil {
     }
 
     public int getEraserDurability() {
-        return 100;
+        return this.eraserDurability;
     }
 }

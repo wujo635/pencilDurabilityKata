@@ -4,7 +4,7 @@ import static org.junit.Assert.assertEquals;
 
 public class GraphitePencilTest {
 
-    private GraphitePencil pencil = new GraphitePencil(100, 10);
+    private GraphitePencil pencil = new GraphitePencil(100, 10, 100);
     private StringBuilder paper = new StringBuilder();
 
     @Test
@@ -27,13 +27,13 @@ public class GraphitePencilTest {
 
     @Test
     public void shouldDisallowNegativeInitialPointDurabilityValue() {
-        pencil = new GraphitePencil(-1, 10);
+        pencil = new GraphitePencil(-1, 10, 100);
         assertEquals(0, pencil.getPointDurability());
     }
 
     @Test
     public void shouldDisallowNegativeInitialLengthValue() {
-        pencil = new GraphitePencil(100, -1);
+        pencil = new GraphitePencil(100, -1, 100);
         assertEquals(0, pencil.getLength());
     }
 
@@ -100,7 +100,7 @@ public class GraphitePencilTest {
 
     @Test
     public void shouldDisallowWritingAfterPointDurabilityDecreasesToZero() {
-        pencil = new GraphitePencil(4, 10);
+        pencil = new GraphitePencil(4, 10, 100);
         pencil.write(paper, "Text");
         assertEquals("Tex", paper.toString());
     }
@@ -126,14 +126,14 @@ public class GraphitePencilTest {
 
     @Test
     public void shouldDisallowNegativeLengthValue() {
-        pencil = new GraphitePencil(100, 0);
+        pencil = new GraphitePencil(100, 0, 100);
         pencil.sharpen();
         assertEquals(0, pencil.getLength());
     }
 
     @Test
     public void shouldDisallowSharpenToResetPointDurabilityWhenLengthIsZero() {
-        pencil = new GraphitePencil(100, 0);
+        pencil = new GraphitePencil(100, 0, 100);
         pencil.write(paper, "Text");
         pencil.sharpen();
         assertEquals(95, pencil.getPointDurability());
