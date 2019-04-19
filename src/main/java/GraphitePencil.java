@@ -51,10 +51,11 @@ public class GraphitePencil {
     public void erase(StringBuilder paper, String textToErase) {
         int substringStartIndex = paper.lastIndexOf(textToErase);
         if (substringStartIndex >= 0) {
+            int maximumCharactersToErase = Math.min(textToErase.length(), this.eraserDurability);
             int substringEndIndex = substringStartIndex + textToErase.length();
-            String emptySpaces = new String(new char[textToErase.length()]).replace("\0", " ");
-            paper.replace(substringStartIndex, substringEndIndex, emptySpaces);
-            this.eraserDurability -= textToErase.length();
+            String emptySpaces = new String(new char[maximumCharactersToErase]).replace("\0", " ");
+            paper.replace(substringEndIndex - maximumCharactersToErase, substringEndIndex, emptySpaces);
+            this.eraserDurability -= maximumCharactersToErase;
         }
     }
 
