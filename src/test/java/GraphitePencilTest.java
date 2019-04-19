@@ -173,4 +173,11 @@ public class GraphitePencilTest {
         pencil.erase(paper, "chuck");
         assertEquals("How much wood would a woodchuck chuck if a wood      could       wood?", paper.toString());
     }
+
+    @Test
+    public void shouldDecreaseEraserDurabilityByOnePerCharacterErased() {
+        pencil.write(paper, "Text");
+        pencil.erase(paper, "x");
+        assertEquals(99, pencil.getEraserDurability());
+    }
 }
