@@ -58,9 +58,10 @@ public class GraphitePencil {
         }
     }
 
-    private void updateEraserDurability(String textToErase, int maximumCharactersToErase) {
-        this.eraserDurability -= maximumCharactersToErase;
-        this.eraserDurability += textToErase.length() - textToErase.replaceAll("\\s+", "").length();
+    private void updateEraserDurability(String textToErase, int charactersErased) {
+        int whitespaceCharacterCount = textToErase.length() - textToErase.replaceAll("\\s+", "").length();
+        this.eraserDurability -= charactersErased;
+        this.eraserDurability += whitespaceCharacterCount;
     }
 
     private String emptyStringSizeOf(int maximumCharactersToErase) {
