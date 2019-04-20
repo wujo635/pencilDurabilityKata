@@ -218,9 +218,9 @@ public class GraphitePencilTest {
     }
 
     @Test
-    public void shouldAllowEditsToPaperWhereAvailableWhitespaceExists() {
+    public void shouldAllowEditsToPaperWhenAvailableWhitespaceExists() {
         pencil.write(paper, "An       a day keeps the doctor away");
-        pencil.edit(paper, 4, "onion");
+        pencil.edit(paper, 3, "onion");
         assertEquals("An onion a day keeps the doctor away", paper.toString());
     }
 }

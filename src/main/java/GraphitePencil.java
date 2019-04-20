@@ -68,8 +68,10 @@ public class GraphitePencil {
         return new String(new char[maximumCharactersToErase]).replace("\0", " ");
     }
 
-    public void edit(StringBuilder paper, int i, String onion) {
-
+    public void edit(StringBuilder paper, int startIndex, String textToEditIn) {
+        for (int index = 0; index < textToEditIn.length(); index++) {
+            paper.setCharAt(startIndex + index, textToEditIn.charAt(index));
+        }
     }
 
     public int getPointDurability() {
