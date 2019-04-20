@@ -56,6 +56,7 @@ public class GraphitePencil {
             String emptySpaces = emptyStringSizeOf(maximumCharactersToErase);
             paper.replace(substringEndIndex - maximumCharactersToErase, substringEndIndex, emptySpaces);
             this.eraserDurability -= maximumCharactersToErase;
+            this.eraserDurability += textToErase.length() - textToErase.replaceAll("\\s+", "").length();
         }
     }
 
