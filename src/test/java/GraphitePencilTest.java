@@ -197,9 +197,16 @@ public class GraphitePencilTest {
     }
 
     @Test
-    public void shouldAllowErasingWhitespaceWithoutDecreasingEraserDurability() {
+    public void shouldAllowErasingSpaceWithoutDecreasingEraserDurability() {
         pencil.write(paper, "Buffalo Bill");
         pencil.erase(paper, " ");
+        assertEquals(100, pencil.getEraserDurability());
+    }
+
+    @Test
+    public void shouldAllowErasingNewlineWithoutDecreasingEraserDurability() {
+        pencil.write(paper, "Buffalo\nBill");
+        pencil.erase(paper, "\n");
         assertEquals(100, pencil.getEraserDurability());
     }
 
