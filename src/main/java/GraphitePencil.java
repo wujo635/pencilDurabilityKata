@@ -53,10 +53,14 @@ public class GraphitePencil {
         if (substringStartIndex >= 0) {
             int maximumCharactersToErase = Math.min(textToErase.length(), this.eraserDurability);
             int substringEndIndex = substringStartIndex + textToErase.length();
-            String emptySpaces = new String(new char[maximumCharactersToErase]).replace("\0", " ");
+            String emptySpaces = emptyStringSizeOf(maximumCharactersToErase);
             paper.replace(substringEndIndex - maximumCharactersToErase, substringEndIndex, emptySpaces);
             this.eraserDurability -= maximumCharactersToErase;
         }
+    }
+
+    private String emptyStringSizeOf(int maximumCharactersToErase) {
+        return new String(new char[maximumCharactersToErase]).replace("\0", " ");
     }
 
     public int getPointDurability() {
