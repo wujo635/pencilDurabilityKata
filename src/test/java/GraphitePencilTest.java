@@ -223,4 +223,11 @@ public class GraphitePencilTest {
         pencil.edit(paper, 3, "onion");
         assertEquals("An onion a day keeps the doctor away", paper.toString());
     }
+
+    @Test
+    public void shouldAllowCollisionsWhenEditsRunIntoExistingText() {
+        pencil.write(paper, "An       a day keeps the doctor away");
+        pencil.edit(paper, 3, "artichoke");
+        assertEquals("An artich@k@ay keeps the doctor away", paper.toString());
+    }
 }
