@@ -70,7 +70,12 @@ public class GraphitePencil {
 
     public void edit(StringBuilder paper, int startIndex, String textToEditIn) {
         for (int index = 0; index < textToEditIn.length(); index++) {
-            paper.setCharAt(startIndex + index, textToEditIn.charAt(index));
+            int indexToWriteTo = startIndex + index;
+            char charToWrite = textToEditIn.charAt(index);
+            if (!Character.isWhitespace(paper.charAt(indexToWriteTo))) {
+                charToWrite = '@';
+            }
+            paper.setCharAt(indexToWriteTo, charToWrite);
         }
     }
 
