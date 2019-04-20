@@ -45,7 +45,6 @@ public class GraphitePencil {
             this.pointDurability = this.maxPointDurability;
             this.length--;
         }
-
     }
 
     public void erase(StringBuilder paper, String textToErase) {
@@ -55,9 +54,13 @@ public class GraphitePencil {
             int substringEndIndex = substringStartIndex + textToErase.length();
             String emptySpaces = emptyStringSizeOf(maximumCharactersToErase);
             paper.replace(substringEndIndex - maximumCharactersToErase, substringEndIndex, emptySpaces);
-            this.eraserDurability -= maximumCharactersToErase;
-            this.eraserDurability += textToErase.length() - textToErase.replaceAll("\\s+", "").length();
+            updateEraserDurability(textToErase, maximumCharactersToErase);
         }
+    }
+
+    private void updateEraserDurability(String textToErase, int maximumCharactersToErase) {
+        this.eraserDurability -= maximumCharactersToErase;
+        this.eraserDurability += textToErase.length() - textToErase.replaceAll("\\s+", "").length();
     }
 
     private String emptyStringSizeOf(int maximumCharactersToErase) {
