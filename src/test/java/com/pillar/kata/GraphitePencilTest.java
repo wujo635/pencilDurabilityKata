@@ -254,4 +254,11 @@ public class GraphitePencilTest {
         pencil.edit(paper, 3, "onion");
         assertEquals("An onio  a day keeps the doctor away", paper.toString());
     }
+
+    @Test
+    public void shouldAllowEditingInWhitespace() {
+        pencil.write(paper, "She sells sea shells down by the sea shore");
+        pencil.edit(paper, 20, "\n");
+        assertEquals("She sells sea shells\ndown by the sea shore", paper.toString());
+    }
 }
