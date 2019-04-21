@@ -242,6 +242,6 @@ public class GraphitePencilTest {
     public void shouldDecreasePointDurabilityPerCharacterWrittenWhenEditing() {
         pencil.write(paper, "An       a day keeps the doctor away");
         pencil.edit(paper, 3, "onion");
-        assertEquals(95, pencil.getPointDurability());
+        assertEquals(70, pencil.getPointDurability());
     }
 }
