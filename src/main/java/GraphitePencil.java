@@ -72,6 +72,9 @@ public class GraphitePencil {
         for (int index = 0; index < textToEditIn.length(); index++) {
             int indexToWriteTo = startIndex + index;
             char charToWrite = textToEditIn.charAt(index);
+            if (indexToWriteTo == paper.length()) {
+                paper.append(" ");
+            }
             if (isCollision(paper, indexToWriteTo)) {
                 charToWrite = '@';
             }
