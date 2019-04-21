@@ -244,4 +244,12 @@ public class GraphitePencilTest {
         pencil.edit(paper, 3, "onion");
         assertEquals(70, pencil.getPointDurability());
     }
+
+    @Test
+    public void shouldDisallowEditingWhenPointDurabilityIsZero() {
+        pencil = new GraphitePencil(29, 10, 100);
+        pencil.write(paper, "An       a day keeps the doctor away");
+        pencil.edit(paper, 3, "onion");
+        assertEquals("An onio  a day keeps the doctor away", paper.toString());
+    }
 }
