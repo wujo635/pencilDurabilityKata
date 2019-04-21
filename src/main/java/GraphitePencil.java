@@ -68,17 +68,17 @@ public class GraphitePencil {
         return new String(new char[maximumCharactersToErase]).replace("\0", " ");
     }
 
-    public void edit(StringBuilder paper, int startIndex, String textToEditIn) {
-        for (int index = 0; index < textToEditIn.length(); index++) {
-            int indexToWriteTo = startIndex + index;
-            char charToWrite = textToEditIn.charAt(index);
-            if (indexToWriteTo == paper.length()) {
+    public void edit(StringBuilder paper, int index, String textToEditIn) {
+        if (textToEditIn.length() > 0) {
+            if (index == paper.length()) {
                 paper.append(" ");
             }
-            if (isCollision(paper, indexToWriteTo)) {
-                charToWrite = '@';
+            if (isCollision(paper, index)) {
+                paper.setCharAt(index, '@');
+            } else {
+                paper.setCharAt(index, textToEditIn.charAt(0));
             }
-            paper.setCharAt(indexToWriteTo, charToWrite);
+            edit(paper, index + 1, textToEditIn.substring(1));
         }
     }
 
