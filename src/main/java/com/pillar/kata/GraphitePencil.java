@@ -82,14 +82,18 @@ public class GraphitePencil {
 
     private void editNextCharacter(StringBuilder paper, int index, String textToEditIn) {
         char characterToWrite = textToEditIn.charAt(0);
-        while (index >= paper.length()) {
-            paper.append(" ");
-        }
+        allotSpace(paper, index);
         if (isCollision(paper, index)) {
             characterToWrite = '@';
         }
         if (canWriteCharacter(characterToWrite)) {
             paper.setCharAt(index, characterToWrite);
+        }
+    }
+
+    private void allotSpace(StringBuilder paper, int index) {
+        if (index >= paper.length()) {
+            paper.append(emptySpaces(index - paper.length() + 1));
         }
     }
 
