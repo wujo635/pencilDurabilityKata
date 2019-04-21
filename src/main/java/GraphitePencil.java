@@ -76,14 +76,15 @@ public class GraphitePencil {
     }
 
     private void editNextCharacter(StringBuilder paper, int index, String textToEditIn) {
+        char charToWrite = textToEditIn.charAt(0);
         if (index == paper.length()) {
             paper.append(" ");
         }
         if (isCollision(paper, index)) {
-            paper.setCharAt(index, '@');
-        } else {
-            paper.setCharAt(index, textToEditIn.charAt(0));
+            charToWrite = '@';
         }
+        paper.setCharAt(index, charToWrite);
+        updatePointDurability(charToWrite);
     }
 
     private boolean isCollision(StringBuilder paper, int indexToWriteTo) {
