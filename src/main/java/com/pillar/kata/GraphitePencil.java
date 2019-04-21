@@ -12,8 +12,8 @@ public class GraphitePencil {
     }
 
     GraphitePencil(int pointDurability, int length, int eraserDurability) {
-        this.pointDurability = Math.max(0, pointDurability);
-        this.maxPointDurability = this.pointDurability;
+        this.maxPointDurability = Math.max(0, pointDurability);
+        this.pointDurability = this.maxPointDurability;
         this.length = Math.max(0, length);
         this.eraserDurability = Math.max(0, eraserDurability);
     }
