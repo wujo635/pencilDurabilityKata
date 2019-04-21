@@ -1,3 +1,5 @@
+package com.pillar.kata;
+
 public class GraphitePencil {
 
     private final int maxPointDurability;
