@@ -15,7 +15,7 @@ public class GraphitePencilTest {
     }
 
     @Test
-    public void shouldHaveLengthValueOFZeroByDefault() {
+    public void shouldHaveLengthValueOfZeroByDefault() {
         pencil = new GraphitePencil();
         assertEquals(0, pencil.getLength());
     }
