@@ -10,3 +10,5 @@ The Pencil Durability Kata requires [JDK 8](https://www.oracle.com/technetwork/j
 4. Html output of the test results can be found under `.\build\reports\tests\test\index.html`
 
 [Link to original Pillar Technology kata readme](https://github.com/PillarTechnology/kata-pencil-durability)
+
+[Link to first kata attempt: Babysitter Kata](https://github.com/wujo635/kata-babysitter)
