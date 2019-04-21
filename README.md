@@ -1,7 +1,7 @@
 ## README
 
 ### Requirements
-The Pencil Durability Kata requires JDK 8 and Gradle installed. 
+The Pencil Durability Kata requires [JDK 8](https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) and [Gradle](https://gradle.org/releases/) installed.
 
 ### Instructions
 1. Download or clone the repository to your local machine.
