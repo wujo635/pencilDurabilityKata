@@ -82,7 +82,7 @@ public class GraphitePencil {
 
     private void editNextCharacter(StringBuilder paper, int index, String textToEditIn) {
         char characterToWrite = textToEditIn.charAt(0);
-        if (index == paper.length()) {
+        while (index >= paper.length()) {
             paper.append(" ");
         }
         if (isCollision(paper, index)) {
