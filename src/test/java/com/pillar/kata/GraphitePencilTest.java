@@ -6,8 +6,7 @@ import static org.junit.Assert.assertEquals;
 
 public class GraphitePencilTest {
 
-    private GraphitePencil pencil = new GraphitePencil(100, 10, 100);
-    private StringBuilder paper = new StringBuilder();
+    private GraphitePencil pencil;
 
     @Test
     public void shouldHavePointDurabilityOfZeroByDefault() {
@@ -43,10 +42,5 @@ public class GraphitePencilTest {
     public void shouldDisallowNegativeInitialEraserDurabilityValue() {
         pencil = new GraphitePencil(100, 10, -1);
         assertEquals(0, pencil.getEraserDurability());
-    }
-
-    @Test
-    public void shouldAllowPointDurabilitySettingOnCreation() {
-        assertEquals(100, pencil.getPointDurability());
     }
 }
