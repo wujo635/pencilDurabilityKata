@@ -50,23 +50,26 @@ public class GraphitePencil {
     }
 
     public void erase(StringBuilder paper, String textToErase) {
-        int substringStartIndex = paper.lastIndexOf(textToErase);
-        if (substringStartIndex >= 0) {
-            int maximumCharactersToErase = Math.min(textToErase.length(), this.eraserDurability);
-            int substringEndIndex = substringStartIndex + textToErase.length();
-            String emptySpaces = emptyStringSizeOf(maximumCharactersToErase);
-            paper.replace(substringEndIndex - maximumCharactersToErase, substringEndIndex, emptySpaces);
-            updateEraserDurability(textToErase, maximumCharactersToErase);
+        int index = paper.lastIndexOf(textToErase);
+        if (index >= 0) {
+            eraseString(paper, textToErase, index);
         }
     }
 
-    private void updateEraserDurability(String textToErase, int charactersErased) {
+    private void eraseString(StringBuilder paper, String textToErase, int startIndex) {
+        int sizeOfErase = Math.min(textToErase.length(), this.eraserDurability);
+        int endIndex = startIndex + textToErase.length();
+        paper.replace(endIndex - sizeOfErase, endIndex, emptySpaces(sizeOfErase));
+        updateEraserDurability(textToErase, sizeOfErase);
+    }
+
+    private void updateEraserDurability(String textToErase, int sizeOfErase) {
         int whitespaceCount = textToErase.length() - textToErase.replaceAll("\\s+", "").length();
-        this.eraserDurability -= charactersErased;
+        this.eraserDurability -= sizeOfErase;
         this.eraserDurability += whitespaceCount;
     }
 
-    private String emptyStringSizeOf(int maximumCharactersToErase) {
+    private String emptySpaces(int maximumCharactersToErase) {
         return new String(new char[maximumCharactersToErase]).replace("\0", " ");
     }
 
