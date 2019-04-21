@@ -24,7 +24,7 @@ public class EditingTests {
     }
 
     @Test
-    public void shouldAllowEditsToExtendPaperLength() {
+    public void shouldAllowEditsToExtendPaperLengthByOne() {
         pencil.write(paper, "Buffalo Bill");
         pencil.edit(paper, 12, "s");
         assertEquals("Buffalo Bills", paper.toString());
@@ -50,5 +50,12 @@ public class EditingTests {
         pencil.write(paper, "She sells sea shells down by the sea shore");
         pencil.edit(paper, 20, "\n");
         assertEquals("She sells sea shells\ndown by the sea shore", paper.toString());
+    }
+
+    @Test
+    public void shouldAllowEditsToExtendPaperLengthMoreThanOne() {
+        pencil.write(paper, "Buffalo Bill");
+        pencil.edit(paper, 13, "s");
+        assertEquals("Buffalo Bill s", paper.toString());
     }
 }
