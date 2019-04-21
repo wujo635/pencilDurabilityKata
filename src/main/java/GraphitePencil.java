@@ -59,9 +59,9 @@ public class GraphitePencil {
     }
 
     private void updateEraserDurability(String textToErase, int charactersErased) {
-        int whitespaceCharacterCount = textToErase.length() - textToErase.replaceAll("\\s+", "").length();
+        int whitespaceCount = textToErase.length() - textToErase.replaceAll("\\s+", "").length();
         this.eraserDurability -= charactersErased;
-        this.eraserDurability += whitespaceCharacterCount;
+        this.eraserDurability += whitespaceCount;
     }
 
     private String emptyStringSizeOf(int maximumCharactersToErase) {
@@ -72,11 +72,15 @@ public class GraphitePencil {
         for (int index = 0; index < textToEditIn.length(); index++) {
             int indexToWriteTo = startIndex + index;
             char charToWrite = textToEditIn.charAt(index);
-            if (!Character.isWhitespace(paper.charAt(indexToWriteTo))) {
+            if (isCollision(paper, indexToWriteTo)) {
                 charToWrite = '@';
             }
             paper.setCharAt(indexToWriteTo, charToWrite);
         }
+    }
+
+    private boolean isCollision(StringBuilder paper, int indexToWriteTo) {
+        return !Character.isWhitespace(paper.charAt(indexToWriteTo));
     }
 
     public int getPointDurability() {
