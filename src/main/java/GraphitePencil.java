@@ -70,15 +70,19 @@ public class GraphitePencil {
 
     public void edit(StringBuilder paper, int index, String textToEditIn) {
         if (textToEditIn.length() > 0) {
-            if (index == paper.length()) {
-                paper.append(" ");
-            }
-            if (isCollision(paper, index)) {
-                paper.setCharAt(index, '@');
-            } else {
-                paper.setCharAt(index, textToEditIn.charAt(0));
-            }
+            editNextCharacter(paper, index, textToEditIn);
             edit(paper, index + 1, textToEditIn.substring(1));
+        }
+    }
+
+    private void editNextCharacter(StringBuilder paper, int index, String textToEditIn) {
+        if (index == paper.length()) {
+            paper.append(" ");
+        }
+        if (isCollision(paper, index)) {
+            paper.setCharAt(index, '@');
+        } else {
+            paper.setCharAt(index, textToEditIn.charAt(0));
         }
     }
 
