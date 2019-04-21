@@ -230,4 +230,11 @@ public class GraphitePencilTest {
         pencil.edit(paper, 3, "artichoke");
         assertEquals("An artich@k@ay keeps the doctor away", paper.toString());
     }
+
+    @Test
+    public void shouldAllowEditsToExtendPaperLength() {
+        pencil.write(paper, "Buffalo Bill");
+        pencil.edit(paper, 12, "s");
+        assertEquals("Buffalo Bills", paper.toString());
+    }
 }
